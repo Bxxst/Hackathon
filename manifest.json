@@ -1,10 +1,17 @@
 {
-"manifest_version": 3,
-"name": "AgeEase",
-"description": "Makes website elderly friendly",
-"version": "1.0",
-"content_scripts": [{
-    "matches": ["<all_urls>"],
-    "css": ["style.css"]
-}]
+    "manifest_version": 3,
+    "name": "AgeEase",
+    "description": "Makes website elderly friendly",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "css": ["style.css"]
+        }
+    ],
+    "action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "AgeEase"
+    }
 }
