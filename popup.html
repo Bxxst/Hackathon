@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            width: 200px;
+            background-color: rgb(87, 80, 80);
+            color: rgb(247, 240, 240);
+        }
+
+        main{
+            width: 200px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1{
+            font-size: 20px;
+        }
+
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body onload = "check()">
+    <main>
+        <h1><b>AgeEase</b></h1><br>
+        <label class="container">Powiększaj tekst: 
+            <input type="checkbox" id="enlarge"><br>
+            <div id="rangeDiv" class="hide">
+                <input type="range" id="enlargeRange" min="16" max="40" value="16">
+                <p id="rangeResult">16 px</p>
+            </div>
+        </label>
+    </main>
+<script src="popupScript.js"></script>
+</body>
+</html>
