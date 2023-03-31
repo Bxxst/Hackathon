@@ -2,25 +2,24 @@ const enlarge = document.getElementById('enlarge');
 const enlargeRange = document.getElementById('enlargeRange');
 const rangeDiv = document.getElementById('rangeDiv');
 const rangeResult = document.getElementById('rangeResult');
+//getting the values of the checkboxes
 var size = "";
 var sizetoggle = 0;
 //0= off, 1= on
+
 function check(){
+
     let size = localStorage.getItem("fontsize");
     let toggletest = localStorage.getItem("togglesizestorage");
-            console.log("Checkform is running. . .")
-            if (size =="")
-            {
-            }
-            else
-            {
-                console.log("The size is: " + size);
-            }
-                if (toggletest == "true") {
-document.getElementById("enlarge").checked = true;
-    }
-        }
 
+    if (toggletest == "true") {
+                document.getElementById("enlarge").checked = true;
+                rangeDiv.classList.remove('hide');
+                enlargeRange.value = size;
+    }
+     rangeResult.innerHTML = size + " px"
+}
+//checking the status of the inptuts from the website
 enlarge.addEventListener('change', function() {
         localStorage.setItem("togglesizestorage", enlarge.checked);
         let toggletest = localStorage.getItem("togglesizestorage");
@@ -32,9 +31,8 @@ enlarge.addEventListener('change', function() {
     if (toggletest == "true") {
 document.getElementById("enlarge").checked = true;
     }
-
-     
 })
+//Checking changes for the toggle
 
 enlargeRange.addEventListener('change', () => {
   console.log("formsend is running. . .");
@@ -49,3 +47,4 @@ enlargeRange.addEventListener('change', () => {
                 console.log("The size is: " + size);
             }
 })
+//checking changes in the slider
