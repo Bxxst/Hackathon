@@ -1,0 +1,49 @@
+:root{
+    --size: 16px;
+}
+html{
+    font-size: var(--size) !important;
+    filter: contrast(150%) !important; 
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-style: italic !important;
+    font-weight: bolder !important;
+    line-height: 1.5 !important;
+}
+p{
+    font-size: 2em !important;
+    
+}
+h1{
+    font-size: 3em !important;
+    font-weight: 700 !important;
+}
+h2{
+    font-size: 2.7em !important;
+}
+a{
+    position: static !important;
+}
+a:hover::after{
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    left: 50% !important;
+    bottom: 20px !important;
+    transform: translate(-50%, -50%) !important;
+    content: attr(data-text) !important;
+    background-color: white !important;
+    color: black !important;
+    font-size: 60px !important;
+    font-weight: bold !important;
+    border: 1px solid black !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 10px !important;
+    box-sizing: content-box !important;
+    border-radius: 24px !important; 
+    text-align: center !important;
+}
