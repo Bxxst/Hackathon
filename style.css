@@ -1,6 +1,7 @@
 :root{
     --size: 16px;
 }
+
 html{
     font-size: var(--size) !important;
     filter: contrast(150%) !important; 
@@ -9,10 +10,21 @@ html{
     font-weight: bolder !important;
     line-height: 1.5 !important;
 }
+
+div{
+    width: auto !important;
+    height: auto !important;
+}
+
 p{
     font-size: 2em !important;
-    
+    line-height: 35px !important;
 }
+
+span{
+    font-size: 1.3em !important;
+}
+
 h1{
     font-size: 3em !important;
     font-weight: 700 !important;
@@ -20,20 +32,55 @@ h1{
 h2{
     font-size: 2.7em !important;
 }
+
+h3{
+    font-size: 2.5em !important;
+}
+
+h4{
+    font-size: 2.3em !important;
+}
+
+h5{
+    font-size: 2.1em !important;
+}
+
+h6{
+    font-size: 1.9em !important;
+}
+
 a{
     position: static !important;
+    font-size: 1.1em !important;
 }
+
+button, input[type=submit]{
+    margin: 1.2em !important;
+    font-size: 1.3em !important;
+}
+
+dl{
+    font-size: 1.4em !important;
+}
+
+imput{
+    width: auto;
+    height: auto;
+    font-size: 1.2em;
+}
+
 a:hover::after{
     position: fixed !important;
     top: auto !important;
     right: auto !important;
     left: 50% !important;
     bottom: 20px !important;
-    transform: translate(-50%, -50%) !important;
+    line-height: 1.2 !important;
+    transform: translateX(-50%)!important;
     content: attr(data-text) !important;
     background-color: white !important;
     color: black !important;
-    font-size: 60px !important;
+    font-size: 50px;
     font-weight: bold !important;
     border: 1px solid black !important;
     width: auto !important;
@@ -46,4 +93,9 @@ a:hover::after{
     box-sizing: content-box !important;
     border-radius: 24px !important; 
     text-align: center !important;
+    
+}
+a:hover::after:empty{
+    padding: 0 !important;
+    border: none !important;
 }

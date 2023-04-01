@@ -8,13 +8,18 @@
         "css": ["style.css"],
         "js": ["content_script.js"]
     }],
+    "icons":{
+        "16": "HackathonLogo.png",
+        "48": "HackathonLogo.png",
+        "128": "HackathonLogo.png"
+    },
     "permissions": [
         "activeTab",
         "storage",
         "scripting"
       ],
     "action": {
-       "default_icon": "icon.png",
+       "default_icon": "HackathonLogo.png",
        "default_popup": "popup.html",
        "default_title": "AgeEase"
     }
