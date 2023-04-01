@@ -45,7 +45,7 @@ enlarge.addEventListener('change', function() {
       chrome.tabs.sendMessage(tabs[0].id, {unchecked: true});
     });
   }
-  if (toggletest == "true") {
+  if (toggletest) {
     document.getElementById("enlarge").checked = true;
     sizeMessage();
   }
@@ -66,33 +66,25 @@ function sizeMessage(){
   chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, {fontSize: localStorage.savedData});
   });
-
-  //my send
-  // let params = {
-  //   active: true,
-  //   currentWindow: true
-  // }
-  // chrome.tabs.query(params, getTabs);
-  // // let test = enlargeRange.value;
-  // let msg = {
-  //   fontSize: size
-  // }
-  // function getTabs(tabs){
-  //   chrome.tabs.sendMessage(tabs[0].id, msg)
-  // }
 }
 
-//Checking changes for the toggle
-// enlargeRange.addEventListener('change', sizeMessage, false);
+// Checking changes for the toggle
 
-// window2.addEventListener('change', function() {
-//   windowcheck = document.getElementById('window2').checked;
-//   console.log(windowcheck);
-//   chrome.storage.local.set({ key3: windowcheck }).then(() => {
-//     console.log("Value is set to " + windowcheck);
-//   });
-//   chrome.storage.local.get(["key3"]).then((result) => {
-//     console.log("Value currently is " + result.key3);
-//     let toggle2 = result.key3;
-//   });
-// }, false);
+window2.addEventListener('change', function() {
+  windowcheck = document.getElementById('window2').checked;
+  console.log(windowcheck);
+  chrome.storage.local.set({ key3: windowcheck })
+  chrome.storage.local.get(["key3"])
+  if(windowcheck){
+    // document.getElementById("window2").checked = true;
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, {hoverChecked: true});
+    });
+  }
+  else{
+    // document.getElementById("window2").checked = false;
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, {hoverChecked: false});
+    });
+  }
+});

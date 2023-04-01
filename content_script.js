@@ -20,7 +20,7 @@ if(data !== null){
 
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message.fontSize)
+  console.log(message)
   let Saved = {
     size : message.fontSize,
     toggle1 : message.unchecked,
@@ -41,5 +41,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       el.classList.add("resised")
     })
   }
-});
-
+  if(message.hoverChecked){
+    document.querySelectorAll("a").forEach(function(el) {
+      el.setAttribute("data-text", el.innerText);
+      el.classList.add("marked");
+      })
+  }
+  else{
+    document.querySelectorAll("a").forEach(function(el) {
+      el.removeAttribute("data-text");
+      el.classList.remove("marked");
+    })
+  }
+})
