@@ -27,6 +27,7 @@ if(toggle1){
 if(toggle2){
   document.querySelectorAll("a").forEach(function(el) {
     el.setAttribute("data-text", el.innerText);
+<<<<<<< HEAD
     el.classList.add("marked")
   });
   document.querySelectorAll("button").forEach(function(el) {
@@ -39,3 +40,16 @@ if(toggle2){
   });
 }
 
+=======
+});
+document.querySelectorAll("input[type=submit]").forEach(function(el) {
+    el.setAttribute("data-text", el.innerText);
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.fontSize) {
+    const fontSize = `${message.fontSize}px`;
+    document.querySelector(':root').style.setProperty('--size', fontSize)
+  }
+});
+>>>>>>> 92261114d577a11a3c472c664e112a0f7e1a005b

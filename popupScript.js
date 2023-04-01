@@ -6,7 +6,7 @@ const rangeResult = document.getElementById('rangeResult');
 var size = "";
 
 document.addEventListener("DOMContentLoaded", function(){ check(); }, false);
-function check(){
+function check(){  
     chrome.storage.local.get(["key"]).then((result) => {
   console.log("Toggle currently is " + result.key);
   console.log(result.key);
@@ -18,7 +18,7 @@ function check(){
 
 });
         chrome.storage.local.get(["key2"]).then((result) => {
-  console.log("Value currently is " + result.key2);
+  console.log("Value currently is " + result.key2); 
        rangeResult.innerHTML = result.key2 + " px"
        document.getElementById("enlargeRange").defaultValue = result.key2; 
 });
@@ -83,7 +83,11 @@ enlargeRange.addEventListener('change', () => {
             {
                 console.log("Empty!");
             }
-    })
+    
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, {fontSize: size});
+    });
+  })
 
 window2.addEventListener('change', () => {
     windowcheck = document.getElementById('window2').checked;
