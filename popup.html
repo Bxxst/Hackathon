@@ -8,8 +8,6 @@
             width: 200px;
             background-color: rgb(87, 80, 80);
             color: rgb(247, 240, 240);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 25px;
         }
 
         main{
@@ -19,111 +17,27 @@
         }
 
         h1{
-            font-size: 30px;
+            font-size: 20px;
         }
 
         .hide{
             display: none;
         }
-
-        .animation{
-            animation-name: animation1;
-            animation-duration: 2s;
-            animation-iteration-count: 1;
-        }
-
-        .toggle-container{
-            margin: 10px;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .toggle-pill-bw input[type="checkbox"] {
-            display: none;
-        }
-
-        .toggle-pill-bw input[type="checkbox"] + label {
-            display: block;
-            position: relative;
-            width: 3em;
-            height: 1.6em;
-            margin-bottom: 20px;
-            background: #5d6062;
-            border-radius: 1em;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-transition: background 0.1s ease-in-out;
-            transition: background 0.1s ease-in-out;
-            transition: 0.5s;
-            box-shadow: 0 0 3px 0.5px black;
-        }
-
-        .toggle-pill-bw input[type="checkbox"] + label:hover {
-            background-color: #ed4fbb;
-            transition: 0.5s;
-        }
-
-        .toggle-pill-bw input[type="checkbox"] + label:before {
-            content: "";
-            display: block;
-            width: 1.2em;
-            height: 1.2em;
-            border-radius: 1em;
-            background: #f7f2f2;
-            position: absolute;
-            left: 0.2em;
-            top: 0.2em;
-            -webkit-transition: all 0.2s ease-in-out;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .toggle-pill-bw input[type="checkbox"]:checked + label {
-            background: #ed4fbb;
-        }
-
-        .toggle-pill-bw input[type="checkbox"]:checked + label:before {
-            left: 1.6em;
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-
-        @keyframes animation1{
-            from{
-                height: auto !important;
-            }
-            to{
-                height: 0 !important;
-            }
-        }
     </style>
 </head>
 <body onload = "check()">
     <main>
-        <h1><b>AgeEase</b></h1>
-        <div class="container">
-            Powiększaj tekst: <br>
-            <div class="toggle-container">
-                <div class="toggle-pill-bw">
-                    <input type="checkbox" id="pill" name="check">
-                    <label for="pill"></label>
-                </div>
-            </div>
+        <h1><b>AgeEase</b></h1><br>
+        <label class="container">Powiększaj tekst: 
+            <input type="checkbox" id="enlarge"><br>
             <div id="rangeDiv" class="hide">
                 <input type="range" id="enlargeRange" min="16" max="40" value="16">
                 <p id="rangeResult">16 px</p>
             </div>
-            Pokazuj okno z tekstem:
-            <div class="toggle-container">
-                <div class="toggle-pill-bw">
-                    <input type="checkbox" id="pill2" name="check">
-                    <label for="pill2"></label>
-                </div>
-            </div>
-            <button id="btn">Zapisz</button>
-        </div>
+        </label>
+         <label class="container">Pokazuj okno z tekstem
+            <input type="checkbox" id="window2">
+        </label>
     </main>
 <script src="popupScript.js"></script>
 </body>
