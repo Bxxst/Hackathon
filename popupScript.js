@@ -19,12 +19,10 @@ function check(){
     }
   });
   chrome.storage.local.get(["key2"]).then((result) => {
-    console.log("Value currently is " + result.key2); 
-      rangeResult.innerHTML = result.key2 + " px"
-      document.getElementById("enlargeRange").defaultValue = result.key2; 
+      rangeResult.innerHTML = savedData + " px"
+      document.getElementById("enlargeRange").defaultValue = savedData; 
   });
   chrome.storage.local.get(["key3"]).then((result) => {
-  console.log("Toggle2 currently is " + result.key3);
   if (result.key3 === true) {
       document.getElementById("window2").checked = true;
     }
@@ -62,7 +60,6 @@ function sizeMessage(){
   rangeResult.innerHTML = size + " px"
   
   savedData = localStorage.setItem('savedData', size);
-  console.log(localStorage.savedData);
   chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, {fontSize: localStorage.savedData});
   });
@@ -72,7 +69,6 @@ function sizeMessage(){
 
 window2.addEventListener('change', function() {
   windowcheck = document.getElementById('window2').checked;
-  console.log(windowcheck);
   chrome.storage.local.set({ key3: windowcheck })
   chrome.storage.local.get(["key3"])
   if(windowcheck){

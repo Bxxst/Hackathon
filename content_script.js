@@ -1,4 +1,4 @@
-let savedData = window.localStorage.getItem("Saved");
+let savedData = window.localStorage.getItem("savedData");
 let data = JSON.parse(savedData);
 document.querySelectorAll("a").forEach(function(el) {
   el.setAttribute("data-text", el.innerText);
