@@ -13,6 +13,18 @@ if(data !== null){
     document.querySelectorAll("*").forEach(el=>{
       el.classList.add("resised")
     })
+    if(data.toggle2){
+      document.querySelectorAll("a").forEach(function(el) {
+        el.setAttribute("data-text", el.innerText);
+        el.classList.add("marked");
+        })
+    }
+    else{
+      document.querySelectorAll("a").forEach(function(el) {
+        el.removeAttribute("data-text");
+        el.classList.remove("marked");
+      })
+    }
 }
 
 
@@ -24,6 +36,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   let Saved = {
     size : message.fontSize,
     toggle1 : message.unchecked,
+    toggle2:  message.hoverChecked
   }
   window.localStorage.setItem("Saved", JSON.stringify(Saved));
 
