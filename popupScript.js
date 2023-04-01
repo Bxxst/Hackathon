@@ -5,7 +5,12 @@ const rangeResult = document.getElementById('rangeResult');
 //getting the values of the checkboxes
 var size = "";
 document.addEventListener("DOMContentLoaded", function(){ check(); }, false);
-function check(){
+function check(){    if(result.key2 === undefined){
+        result.key2 = "16";
+    }
+                     if(result.key2 === undefined){
+        result.key2 = "16";
+    }
     chrome.storage.local.get(["key"]).then((result) => {
   console.log("Toggle currently is " + result.key);
   console.log(result.key);
@@ -17,8 +22,7 @@ function check(){
 
 });
         chrome.storage.local.get(["key2"]).then((result) => {
-  console.log("Value currently is " + result.key2);
-        result.key2 = "16";    
+  console.log("Value currently is " + result.key2); 
        rangeResult.innerHTML = result.key2 + " px"
        document.getElementById("enlargeRange").defaultValue = result.key2; 
 });
