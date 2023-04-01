@@ -15,7 +15,7 @@ if(data !== null){
     })
     if(data.toggle2){
       document.querySelectorAll("a").forEach(function(el) {
-        el.setAttribute("data-text", el.innerText);
+        el.setAttribute("data-text", el.textContent.slice(0, 30)+"...");
         el.classList.add("marked");
         })
     }

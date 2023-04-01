@@ -44,6 +44,9 @@ h5.resised{
 h6.resised{
     font-size: 1.9em !important;
 }
+.gyPpGe{
+    display: none !important;
+}
 
 a.resised{
     position: static !important;
@@ -95,3 +98,4 @@ imput.resised{
     padding: 0 !important;
     border: none !important;
 }
+    

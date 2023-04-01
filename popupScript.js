@@ -2,6 +2,15 @@ const enlarge = document.getElementById('enlarge');
 const enlargeRange = document.getElementById('enlargeRange');
 const rangeDiv = document.getElementById('rangeDiv');
 const rangeResult = document.getElementById('rangeResult');
+
+// Get a reference to the close button element
+document.getElementById('closeButton').addEventListener("click",closePopup);
+function closePopup() {
+  window.close();
+}
+
+
+
 //getting the values of the checkboxes
 var size = "";
 

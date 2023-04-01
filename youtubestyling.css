@@ -1,0 +1,21 @@
+#contents.style-scope{
+    --ytd-rich-grid-posts-per-row:2 !important;
+    --ytd-slim-grid-posts-per-row:1 !important;
+}
+
+ytd-rich-grid-row{
+    display:flex !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+style attribute {
+    --ytd-rich-grid-items-per-row: 2;
+    --ytd-rich-grid-posts-per-row: 2;
+    --ytd-rich-grid-slim-items-per-row: 4;
+    --ytd-rich-grid-game-cards-per-row: 4;
+}
+
+
+/*ytd-video-preview.style-scope{
+}*/
