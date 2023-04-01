@@ -18,6 +18,7 @@ function check(){
 });
         chrome.storage.local.get(["key2"]).then((result) => {
   console.log("Value currently is " + result.key2);
+        result.key2 = "16";    
        rangeResult.innerHTML = result.key2 + " px"
        document.getElementById("enlargeRange").defaultValue = result.key2; 
 });
