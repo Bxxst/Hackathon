@@ -1,5 +1,10 @@
-let savedData = window.localStorage.getItem("Saved");
+let savedData = window.localStorage.getItem("savedData");
 let data = JSON.parse(savedData);
+document.querySelectorAll("a").forEach(function(el) {
+  el.setAttribute("data-text", el.innerText);
+  el.classList.add("marked");
+  })
+
 console.log(data)
 if(data !== null){
   if(data.toggle1){
@@ -38,7 +43,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     toggle1 : message.unchecked,
     toggle2:  message.hoverChecked
   }
-  window.localStorage.setItem("Saved", JSON.stringify(Saved));
+  window.localStorage.setItem("savedData", JSON.stringify(Saved));
 
 
   if(message.unchecked){

@@ -1,5 +1,5 @@
 :root{
-    --size: 13px;
+    --size: 10px;
 }
 
 html.resised{
@@ -84,12 +84,14 @@ imput.resised{
     border: 1px solid black !important;
     width: auto !important;
     height: auto !important;
+    max-height: 30vh !important;
     z-index: 1000 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     padding: 10px !important;
     box-sizing: content-box !important;
+    box-shadow: 0 0 5px 1px black !important;
     border-radius: 24px !important; 
     text-align: center !important;
     
@@ -97,5 +99,9 @@ imput.resised{
 .marked:hover:empty::after{
     padding: 0 !important;
     border: none !important;
+}
+.marked:hover{
+    position: static !important;
+    overflow: visible !important; 
 }
     
