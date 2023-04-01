@@ -5,30 +5,40 @@
     <meta charset="UTF-8">
     <style>
         body{
-            height: 300px;
+
+            height: 200px;
             width: 300px;
-            background-color: rgb(215, 206, 206);
+            background-color: #EBEEF7;
             color: rgb(0, 0, 0);
             font-size: 20px;
+            font-family: sans-serif;
+
         }
 
         main{
-            height: 300px;
-            justify-content: center;
-            text-align: center;
+            height: 200px;
+            float: left;
+            font-style: italic;
         }
 
         input[type=checkbox]{
             width: 20px;
             height: 20px;
         }
-
+        input[type=range]{
+            width: 70%;
+            height: 2vh;
+        }
         h1{
+            text-align: center;
             font-size: 30px;
         }
 
         .hide{
             display: none;
+        }
+        #rangediv{
+            display: flex;
         }
     </style>
 </head>
@@ -37,14 +47,15 @@
         <h1><b>AgeEase</b></h1><br>
         <label class="container">Powiększaj tekst: 
             <input type="checkbox" id="enlarge"><br>
-            <div id="rangeDiv" class="hide">
-                <input type="range" id="enlargeRange" min="16" max="40" value="16">
-                <p id="rangeResult">16 px</p>
-            </div>
+            
         </label>
          <label class="container">Pokazuj okno z tekstem
             <input type="checkbox" id="window2">
         </label>
+        <div id="rangeDiv" class="hide">
+                 <label id="rangeResult">16 px</label>
+                <input type="range" id="enlargeRange" min="16" max="40" value="16">
+         </div>
     </main>
 <script src="popupScript.js"></script>
 </body>
