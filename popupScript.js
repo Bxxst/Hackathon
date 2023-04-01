@@ -4,6 +4,7 @@ const rangeDiv = document.getElementById('rangeDiv');
 const rangeResult = document.getElementById('rangeResult');
 //getting the values of the checkboxes
 var size = "";
+
 document.addEventListener("DOMContentLoaded", function(){ check(); }, false);
 function check(){
     chrome.storage.local.get(["key"]).then((result) => {
@@ -40,6 +41,7 @@ chrome.storage.local.set({ key: toggletest }).then(() => {
 
 chrome.storage.local.get(["key"]).then((result) => {
   console.log("Toggle currently is " + result.key);
+  let toggle1 = result.key;
 });
 
     if (enlarge.checked) {
@@ -50,6 +52,19 @@ chrome.storage.local.get(["key"]).then((result) => {
     if (toggletest == "true") {
 document.getElementById("enlarge").checked = true;
     }
+    //my send
+    let params = {
+      active: true,
+      currentWindow: true
+    }
+    chrome.tabs.query(params, getTabs);
+    let test = enlargeRange.value;
+    let msg = {
+      txt: test
+    }
+    function getTabs(tabs){
+      chrome.tabs.sendMessage(tabs[0].id, msg)
+    }
 })
 //Checking changes for the toggle
 
@@ -57,9 +72,11 @@ enlargeRange.addEventListener('change', () => {
     size = enlargeRange.value;
     chrome.storage.local.set({ key2: size }).then(() => {
   console.log("Value is set to " + size);
+  
 });
     chrome.storage.local.get(["key2"]).then((result) => {
   console.log("Value currently is " + result.key2);
+  let size1 = result.key2;
 });
     rangeResult.innerHTML = size + " px"
         if (size == "")
@@ -76,9 +93,7 @@ window2.addEventListener('change', () => {
 });
     chrome.storage.local.get(["key3"]).then((result) => {
   console.log("Value currently is " + result.key3);
+  
+  let toggle2 = result.key3;
 });
     })
-
-
-//checking changes in the slider
-
