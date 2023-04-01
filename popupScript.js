@@ -5,12 +5,7 @@ const rangeResult = document.getElementById('rangeResult');
 //getting the values of the checkboxes
 var size = "";
 document.addEventListener("DOMContentLoaded", function(){ check(); }, false);
-function check(){    if(result.key2 === undefined){
-        result.key2 = "16";
-    }
-                     if(result.key2 === undefined){
-        result.key2 = "16";
-    }
+function check(){  
     chrome.storage.local.get(["key"]).then((result) => {
   console.log("Toggle currently is " + result.key);
   console.log(result.key);
