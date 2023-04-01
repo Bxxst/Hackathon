@@ -1,5 +1,10 @@
 let savedData = window.localStorage.getItem("Saved");
 let data = JSON.parse(savedData);
+document.querySelectorAll("a").forEach(function(el) {
+  el.setAttribute("data-text", el.innerText);
+  el.classList.add("marked");
+  })
+
 console.log(data)
 if(data !== null){
   if(data.toggle1){
