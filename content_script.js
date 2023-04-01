@@ -7,3 +7,10 @@ document.querySelectorAll("button").forEach(function(el) {
 document.querySelectorAll("input[type=submit]").forEach(function(el) {
     el.setAttribute("data-text", el.innerText);
 });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.fontSize) {
+    const fontSize = `${message.fontSize}px`;
+    document.querySelector(':root').style.setProperty('--size', fontSize)
+  }
+});

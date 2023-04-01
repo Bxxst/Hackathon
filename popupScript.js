@@ -66,7 +66,11 @@ enlargeRange.addEventListener('change', () => {
             {
                 console.log("Empty!");
             }
-    })
+    
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, {fontSize: size});
+    });
+  })
 
 window2.addEventListener('change', () => {
     windowcheck = document.getElementById('window2').checked;
