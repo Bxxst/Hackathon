@@ -43,7 +43,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     toggle1 : message.unchecked,
     toggle2:  message.hoverChecked
   }
-  window.localStorage.setItem("savedData", JSON.stringify(Saved));
+  window.localStorage.setItem("Saved", JSON.stringify(Saved));
 
 
   if(message.unchecked){
