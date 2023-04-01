@@ -1,6 +1,6 @@
-let savedData = window.localStorage.getItem("Saved");
+let savedData = window.localStorage.getItem("savedData");
 let data = JSON.parse(savedData);
-console.log(data)
+console.log("Stored data is:" + data);
 if(data !== null){
   if(data.toggle1){
     document.querySelectorAll("*").forEach(el=>{
