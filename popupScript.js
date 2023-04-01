@@ -1,4 +1,4 @@
-const enlarge = document.getElementById('enlarge');
+const enlarge = document.getElementById('pill');
 const enlargeRange = document.getElementById('enlargeRange');
 const rangeDiv = document.getElementById('rangeDiv');
 const rangeResult = document.getElementById('rangeResult');
@@ -25,7 +25,7 @@ function check(){
  chrome.storage.local.get(["key3"]).then((result) => {
   console.log("Toggle2 currently is " + result.key3);
     if (result.key3 === true) {
-            document.getElementById("window2").checked = true;
+            document.getElementById("pill2").checked = true;
 
     }
     });
@@ -69,7 +69,7 @@ enlargeRange.addEventListener('change', () => {
     })
 
 window2.addEventListener('change', () => {
-    windowcheck = document.getElementById('window2').checked;
+    windowcheck = document.getElementById('pill2').checked;
     console.log(windowcheck);
     chrome.storage.local.set({ key3: windowcheck }).then(() => {
   console.log("Value is set to " + windowcheck);
