@@ -7,7 +7,10 @@ var size = "";
 
 document.addEventListener("DOMContentLoaded", function(){ check(); }, false);
 
-function check(){  
+function check(){
+  var savedData = localStorage.getItem('savedData');
+  console.log(savedData);
+  size = savedData;
   sizeMessage();
   chrome.storage.local.get(["key"]).then((result) => {
     if (result.key === true) {
@@ -49,6 +52,7 @@ enlarge.addEventListener('change', function() {
   // else{
     
   // }
+  localStorage.getItem('savedData')
 });
 
 function sizeMessage(){
@@ -56,8 +60,11 @@ function sizeMessage(){
   chrome.storage.local.set({ key2: size })
   chrome.storage.local.get(["key2"])
   rangeResult.innerHTML = size + " px"
+  
+  savedData = localStorage.setItem('savedData', size);
+  console.log(localStorage.savedData);
   chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    chrome.tabs.sendMessage(tabs[0].id, {fontSize: size});
+    chrome.tabs.sendMessage(tabs[0].id, {fontSize: localStorage.savedData});
   });
 
   //my send
