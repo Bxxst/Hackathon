@@ -1,55 +1,30 @@
-chrome.runtime.onChange.addListener(getMessage);
-
-function getMessage(message, sender, sendRangeVal){
-  console.log(message);
-  document.querySelector(':root').style.setProperty('--size', message+"px")
-}
-
-// Use the variables here
 
 
-
-chrome.storage.local.get(["key"]).then((result) => {
-
-});
-
-// chrome.storage.local.get(["key2"]).then((result) => {
-//   size1= result.key2;
+// document.querySelectorAll("a").forEach(function(el) {
+//   el.setAttribute("data-text", el.innerText);
 // });
-// chrome.storage.local.get(["key3"]).then((result) => {
-//   toggle2 = result.key3;
+// document.querySelectorAll("button").forEach(function(el) {
+//     el.setAttribute("data-text", el.innerText);
 // });
-
-
-if(toggle1){
-  document.querySelector(':root').style.setProperty('--size', size1+"px")
-}
-if(toggle2){
-  document.querySelectorAll("a").forEach(function(el) {
-    el.setAttribute("data-text", el.innerText);
-<<<<<<< HEAD
-    el.classList.add("marked")
-  });
-  document.querySelectorAll("button").forEach(function(el) {
-      el.setAttribute("data-text", el.innerText);
-      el.classList.add("marked")
-  });
-  document.querySelectorAll("input[type=submit]").forEach(function(el) {
-      el.setAttribute("data-text", el.innerText);
-      el.classList.add("marked")
-  });
-}
-
-=======
-});
-document.querySelectorAll("input[type=submit]").forEach(function(el) {
-    el.setAttribute("data-text", el.innerText);
-});
+// document.querySelectorAll("input[type=submit]").forEach(function(el) {
+//     el.setAttribute("data-text", el.innerText);
+// });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message.fontSize)
+  if(message.unchecked){
+    document.querySelectorAll("*").forEach(el=>{
+      el.classList.remove("resised")
+    })
+    document.querySelector(':root').style.setProperty('--size', "16px")
+  }
   if (message.fontSize) {
     const fontSize = `${message.fontSize}px`;
     document.querySelector(':root').style.setProperty('--size', fontSize)
+    document.querySelectorAll("*").forEach(el=>{
+      el.classList.add("resised")
+    })
   }
+  
+ 
 });
->>>>>>> 92261114d577a11a3c472c664e112a0f7e1a005b

@@ -3,6 +3,9 @@
     "name": "AgeEase",
     "description": "Makes website elderly friendly",
     "version": "1.0",
+    "content_security_policy": {
+        "script-src": ["'self'", "'unsafe-inline'"]
+    },
     "content_scripts": [{
         "matches": ["<all_urls>"],
         "css": ["style.css"],
@@ -13,6 +16,12 @@
         "48": "HackathonLogo.png",
         "128": "HackathonLogo.png"
     },
+    "web_accessible_resources": [
+        {
+          "resources": ["content_script.js","popupScript.js"],
+          "matches": ["<all_urls>"]
+        }
+    ],
     "permissions": [
         "activeTab",
         "storage",
